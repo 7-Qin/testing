@@ -61,7 +61,18 @@ public class LevelsMap : MonoBehaviour {
 				IsLevelLocked (mapLevel.Number));
 		}
 		Debug.Log("UpdateMapLevels _mapProgressManager.LoadLevelStarsCount in LevelsMap.cs");
-		
+		// StartCoroutine(BlockChainInteractionsScript.GetInfoByPublicKeyWithCallBack(accountData =>
+		// {
+		// 	foreach (MapLevel mapLevel in GetMapLevels())
+		// 	{
+		// 		LevelHistory levelData = accountData.levelHistory.Find(ld => ld.levelNumber == mapLevel.Number);
+		// 		if (levelData != null)
+		// 		{
+		// 			mapLevel.UpdateState(levelHistory.levelStars, levelData.levelIsLocked);
+		// 		}
+		// 	}
+		// 	Debug.Log("UpdateMapLevels _mapProgressManager.LoadLevelStarsCount in LevelsMap.cs");
+		// }));
 	}
 			
 	// mapLevel.UpdateState (_mapProgressManager.LoadLevelStarsCount (1),IsLevelLocked (1));
