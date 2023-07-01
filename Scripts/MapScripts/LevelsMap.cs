@@ -53,6 +53,7 @@ public class LevelsMap : MonoBehaviour {
 	}
 
 	//VIP Function
+	//打开Game Scene会调用这个函数
 	private void UpdateMapLevels () {
 		foreach (MapLevel mapLevel in GetMapLevels()) {
 			mapLevel.UpdateState (
@@ -60,8 +61,11 @@ public class LevelsMap : MonoBehaviour {
 				IsLevelLocked (mapLevel.Number));
 		}
 		Debug.Log("UpdateMapLevels _mapProgressManager.LoadLevelStarsCount in LevelsMap.cs");
-		//打开Game Scene会调用
+		
 	}
+			
+	// mapLevel.UpdateState (_mapProgressManager.LoadLevelStarsCount (1),IsLevelLocked (1));
+
 
 	private void PlaceCharacterToLastUnlockedLevel () {
 		int lastUnlockedNumber = GetMapLevels ().Where (l => !l.IsLocked).Select (l => l.Number).Max ();

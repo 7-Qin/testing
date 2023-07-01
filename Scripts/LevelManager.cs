@@ -7,6 +7,8 @@ using UnityEngine.UI;
 using JellyGarden.Scripts.Targets;
 using UnityEngine.SceneManagement;
 using Object = UnityEngine.Object;
+using UnityEngine.Networking;
+using System.Text;
 
 public class SquareBlocks
 {
@@ -38,6 +40,8 @@ public enum GameState
 
 public class LevelManager : MonoBehaviour
 {
+
+    public CoroutineManagerScript coroutineManager; // 你的CoroutineManagerScript引用
 
     public static LevelManager THIS;
     public static LevelManager Instance;
@@ -349,34 +353,20 @@ public class LevelManager : MonoBehaviour
                 //SetPlayerScore SetPlayerLevel SetStars
                 //Chuci Qin
                 //VIP Function
-                // public void SetPlayerScore(int level, int score)
-                // {
-                //     if (!NetworkManager.THIS.IsLoggedIn)
-                //         return;
-
-                //     if (score <= LevelScoreCurrentRecord)
-                //         return;
-
-                //     dataManager.SetPlayerScore(level, score);
-                // }
-
-                // public void SetPlayerLevel(int level)
-                // {
-                //     if (!NetworkManager.THIS.IsLoggedIn)
-                //         return;
-
-                //     if (level <= LatestReachedLevel)
-                //         return;
-
-                //     dataManager.SetPlayerLevel(level);
-                // }
+                int starsCount = PlayerPrefs.GetInt(string.Format("Level.{0:000}.StarsCount", currentLevel));
                 
-                // public void SetStars()
-                // {
-                //     int level = LevelManager.THIS.currentLevel;
-                //     int stars = PlayerPrefs.GetInt(string.Format("Level.{0:000}.StarsCount", level));
-                //     dataManager.SetStars(stars, level);
-                // }
+                // coroutineManager.StartUpdateAccountCoroutine(currentLevel, starsCount, Score);
+                // StartCoroutine(UpdateAccountCoroutine(BlockChainInteractionsScript.WalletPublicKey, currentLevel, starsCount, Score));
+                Debug.Log("UpdateAccountCoroutine StartCoroutine");
+                Debug.Log("BlockChainInteractionsScript.WalletPublicKey: " + BlockChainInteractionsScript.WalletPublicKey);
+                Debug.Log("currentLevel: " + currentLevel);
+                Debug.Log("starsCount: " + starsCount);
+                Debug.Log("Score: " + Score);
+
+                // 获取BlockChainInteractionsScript组件的引用
+                BlockChainInteractionsScript blockChainScript = GameObject.FindObjectOfType<BlockChainInteractionsScript>();
+                // 调用UpdateAccountCoroutine方法
+                blockChainScript.StartCoroutine(blockChainScript.UpdateAccountCoroutine(currentLevel, starsCount, Score));
 
                 GameObject.Find("CanvasGlobal").transform.Find("MenuComplete").gameObject.SetActive(true);
                 SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.complete[1]);
@@ -386,6 +376,7 @@ public class LevelManager : MonoBehaviour
 
         }
     }
+
 
     public void MenuPlayEvent()
     {
