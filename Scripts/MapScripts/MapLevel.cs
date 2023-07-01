@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+//VIP Function
 public class MapLevel : MonoBehaviour
 {
     private Vector3 _originalScale;

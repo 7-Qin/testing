@@ -9,6 +9,7 @@ public class PlayerPrefsMapProgressManager : IMapProgressManager
         return string.Format("Level.{0:000}.StarsCount", number);
     }
 
+    //VIP Function
     //这个会在刚进入Game Scene和打完关卡后被疯狂的调用
     public int LoadLevelStarsCount(int level)
     {

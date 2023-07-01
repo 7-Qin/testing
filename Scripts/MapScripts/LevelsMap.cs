@@ -52,6 +52,7 @@ public class LevelsMap : MonoBehaviour {
 		SetCameraToCharacter ();
 	}
 
+	//VIP Function
 	private void UpdateMapLevels () {
 		foreach (MapLevel mapLevel in GetMapLevels()) {
 			mapLevel.UpdateState (

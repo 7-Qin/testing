@@ -2,7 +2,7 @@
 using UnityEngine;
 using System.Collections;
 
-#if PLAYFAB || GAMESPARKS
+// #if PLAYFAB || GAMESPARKS
 #if GAMESPARKS
 using GameSparks.Platforms;
 #endif
@@ -186,7 +186,7 @@ this.gameObject.AddComponent<WebGLPlatform>();
 
 	#endregion
 }
-#endif
+// #endif
 
 public class LeadboardPlayerData
 {

@@ -346,6 +346,38 @@ public class LevelManager : MonoBehaviour
                 NetworkManager.dataManager.SetPlayerLevel(currentLevel + 1);
                 NetworkManager.dataManager.SetStars();
 #endif
+                //SetPlayerScore SetPlayerLevel SetStars
+                //Chuci Qin
+                //VIP Function
+                // public void SetPlayerScore(int level, int score)
+                // {
+                //     if (!NetworkManager.THIS.IsLoggedIn)
+                //         return;
+
+                //     if (score <= LevelScoreCurrentRecord)
+                //         return;
+
+                //     dataManager.SetPlayerScore(level, score);
+                // }
+
+                // public void SetPlayerLevel(int level)
+                // {
+                //     if (!NetworkManager.THIS.IsLoggedIn)
+                //         return;
+
+                //     if (level <= LatestReachedLevel)
+                //         return;
+
+                //     dataManager.SetPlayerLevel(level);
+                // }
+                
+                // public void SetStars()
+                // {
+                //     int level = LevelManager.THIS.currentLevel;
+                //     int stars = PlayerPrefs.GetInt(string.Format("Level.{0:000}.StarsCount", level));
+                //     dataManager.SetStars(stars, level);
+                // }
+
                 GameObject.Find("CanvasGlobal").transform.Find("MenuComplete").gameObject.SetActive(true);
                 SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.complete[1]);
                 OnWin();

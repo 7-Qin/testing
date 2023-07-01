@@ -184,3 +184,102 @@ public class NetworkDataManager
 }
 
 #endif
+
+// NetworkDataManager：这是一个类，它负责管理网络数据。
+
+// GetBoosterData：这个方法用于获取booster的数据。
+
+// GetPlayerLevel：这个方法用于获取玩家的等级。
+
+// GetPlayerScore：这个方法用于获取玩家的分数。
+
+// GetStars：这个方法用于获取星星的数量。
+
+// SetBoosterData：这个方法用于设置booster的数据。
+
+// SetPlayerLevel：这个方法用于设置玩家的等级。
+
+// SetPlayerScore：这个方法用于设置玩家的分数。
+
+// SetPlayerScoreTotal：这个方法用于设置玩家的总分数。
+
+// SetStars：这个方法用于设置星星的数量。
+
+// SetTotalStars：这个方法用于设置总星星的数量。
+
+// SyncAllData：这个方法用于同步所有的数据。
+
+// using System.Collections;
+// using UnityEngine;
+// using UnityEngine.Networking;
+
+// public class NetworkDataManager : MonoBehaviour
+// {
+//     private string serverUrl = "http://your-server-url.com/api/";
+
+//     public IEnumerator GetBoosterData()
+//     {
+//         UnityWebRequest request = UnityWebRequest.Get(serverUrl + "getBoosterData");
+//         yield return request.SendWebRequest();
+
+//         if (request.result == UnityWebRequest.Result.Success)
+//         {
+//             // Process the booster data
+//             string boosterData = request.downloadHandler.text;
+//         }
+//         else
+//         {
+//             Debug.Log(request.error);
+//         }
+//     }
+
+//     public IEnumerator GetPlayerLevel()
+//     {
+//         UnityWebRequest request = UnityWebRequest.Get(serverUrl + "getPlayerLevel");
+//         yield return request.SendWebRequest();
+
+//         if (request.result == UnityWebRequest.Result.Success)
+//         {
+//             // Process the player level
+//             string playerLevel = request.downloadHandler.text;
+//         }
+//         else
+//         {
+//             Debug.Log(request.error);
+//         }
+//     }
+
+//     // ... Repeat the above pattern for other Get methods ...
+
+//     public IEnumerator SetBoosterData(string boosterData)
+//     {
+//         UnityWebRequest request = UnityWebRequest.Post(serverUrl + "setBoosterData", boosterData);
+//         yield return request.SendWebRequest();
+
+//         if (request.result != UnityWebRequest.Result.Success)
+//         {
+//             Debug.Log(request.error);
+//         }
+//     }
+
+//     public IEnumerator SetPlayerLevel(string playerLevel)
+//     {
+//         UnityWebRequest request = UnityWebRequest.Post(serverUrl + "setPlayerLevel", playerLevel);
+//         yield return request.SendWebRequest();
+
+//         if (request.result != UnityWebRequest.Result.Success)
+//         {
+//             Debug.Log(request.error);
+//         }
+//     }
+
+//     // ... Repeat the above pattern for other Set methods ...
+
+//     public IEnumerator SyncAllData()
+//     {
+//         // Depending on how you want to sync all data, you might want to call all the Get and Set methods here
+//         yield return StartCoroutine(GetBoosterData());
+//         yield return StartCoroutine(GetPlayerLevel());
+//         // ... and so on ...
+//     }
+// }
