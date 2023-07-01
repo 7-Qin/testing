@@ -234,6 +234,8 @@ public class InitScript : MonoBehaviour
     {
         // When the app starts, set up the Thirdweb SDK
         // Here, we're setting up a read-only instance on the "goerli" test network.
+
+        //ChuciQin
         sdk = new ThirdwebSDK("binance-testnet");
         // Debug.Log("Wallet Public Key is（in initScript）: " + StartScreenScript.WalletPublicKey);
         // StartCoroutine(PostPublicKey());
@@ -264,6 +266,9 @@ public class InitScript : MonoBehaviour
                 dailyRewardedShownDate[i] = DateTimeManager.GetLastDateTime(((RewardedAdsType)i).ToString());
             }
         }
+
+        //ChuciQin
+        //TODO：估计要去掉这个。从服务器中读区是否为第一次加载
         if (PlayerPrefs.GetInt("Lauched") == 0)
         {    //First lauching
             lifes = CapOfLife;
@@ -502,6 +507,7 @@ public class InitScript : MonoBehaviour
             for (int i = 1; i < GameObject.Find("Levels").transform.childCount; i++)
             {
                 SaveLevelStarsCount(i, 1);
+                Debug.Log("InitScript Update SaveLevelStarsCount");
             }
 
         }

@@ -58,6 +58,8 @@ public class LevelsMap : MonoBehaviour {
 				_mapProgressManager.LoadLevelStarsCount (mapLevel.Number),
 				IsLevelLocked (mapLevel.Number));
 		}
+		Debug.Log("UpdateMapLevels _mapProgressManager.LoadLevelStarsCount in LevelsMap.cs");
+		//打开Game Scene会调用
 	}
 
 	private void PlaceCharacterToLastUnlockedLevel () {
@@ -112,9 +114,9 @@ public class LevelsMap : MonoBehaviour {
 	}
 
 	public static bool IsLevelLocked (int number) {
-		return false;
+		// return false;
 		//ChuciQin 全关卡解锁
-		// return number > 1 && _mapProgressManager.LoadLevelStarsCount (number - 1) == 0;
+		return number > 1 && _mapProgressManager.LoadLevelStarsCount (number - 1) == 0;
 	}
 
 	public static void OverrideMapProgressManager (IMapProgressManager mapProgressManager) {
@@ -148,6 +150,7 @@ public class LevelsMap : MonoBehaviour {
 			int curStarsCount = _mapProgressManager.LoadLevelStarsCount (number);
 			int maxStarsCount = Mathf.Max (curStarsCount, starsCount);
 			_mapProgressManager.SaveLevelStarsCount (number, maxStarsCount);
+			Debug.Log("CompleteLevelInternal _mapProgressManager.SaveLevelStarsCount in LevelsMap.cs");
 
 			if (_instance != null)
 				_instance.UpdateMapLevels ();

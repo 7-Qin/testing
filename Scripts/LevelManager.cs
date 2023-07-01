@@ -657,6 +657,7 @@ public class LevelManager : MonoBehaviour
     public void CheckWinLose()
     {
         //		print ("check win lose");
+        Debug.Log("CheckWinLose in LevelManager");
         if (Limit <= 0)
         {
             bool lose = false;
@@ -667,7 +668,11 @@ public class LevelManager : MonoBehaviour
             else if (Score >= THIS.star1 && targetObject.All(i => i.Done()))
             {
                 gameStatus = GameState.PreWinAnimations;
+                Debug.Log("CheckWinLose in LevelManager 1");
             }
+            Debug.Log("CheckWinLose in LevelManager Limit <= 0");
+            //看到这个的时候就是关卡失败了
+
         }
         else
         {
@@ -676,6 +681,7 @@ public class LevelManager : MonoBehaviour
             {
                     gameStatus = GameState.PreWinAnimations;
             }
+            Debug.Log("CheckWinLose in LevelManager Limit <= 0 else");
 
 
         }
@@ -2197,6 +2203,7 @@ public class LevelManager : MonoBehaviour
                 SoundBase.Instance.GetComponent<AudioSource>().PlayOneShot(SoundBase.Instance.getStarIngr);
             star3Anim.SetActive(true);
         }
+        Debug.Log("CheckStars in LevelManager");
     }
 
     public void LoadDataFromLocal(int currentLevel)

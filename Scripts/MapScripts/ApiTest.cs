@@ -61,9 +61,12 @@ public class ApiTest : MonoBehaviour, IMapProgressManager
 				{
 					// LevelsMap.CompleteLevel(i, _starsCount);
 					SaveLevelStarsCount(i, _starsCount);
+					Debug.Log("onGUI in MapScripts" + i);
 				}
 			}
 
+			//ChuciQin
+			//Button("Complete level")
 			if (GUILayout.Button("Complete level"))
 			{
 				if (LevelsMap.IsStarsEnabled())
